@@ -50,3 +50,23 @@ calculateTotalSalaryWithBonus()
         return `${this.name} manager has $${this.salary} salary, works as a(n) ${this.position} in the ${this.department} department, and has a bonus of $${this.bonus}.`;
         }
 }; // Overrides method to include the bonus for manager
+
+// Task 5: Create and Manage Departments and Employees
+
+const sales = new Department("Sales");
+const finance = new Department("Finance");
+
+const Hazel = new Employee("Hazel", 95000, "Representative", "Sales");
+const Steven = new Employee("Steven", 80000, "Accountant", "Finance");
+const Ricky = new Manager("Ricky", 150000, "Sales Manager", "Sales", 30000);
+const Alan = new Manager("Alan", 125000, "Finance Manager", "Finance", 15000);
+
+sales.addEmployee(Hazel);
+sales.addEmployee(Ricky);
+finance.addEmployee(Steven);
+finance.addEmployee(Alan);
+
+console.log(`Total salary for Sales Department: $${sales.getDepartmentSalary()}`);
+console.log(`Total salary for Finance Department: $${finance.getDepartmentSalary()}`);
+console.log(`Total salary with bonuses for Sales Department: $${sales.calculateTotalSalaryWithBonus()}`);
+console.log(`Total salary with bonuses for Finance Department: $${finance.calculateTotalSalaryWithBonus()}`);
