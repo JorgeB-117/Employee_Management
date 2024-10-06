@@ -7,7 +7,7 @@ class Employee{
         this.position = position;
         this.department = department;
     }
-    getdetails() {
+    getDetails() {
         return `${this.name} - ${this.position}: $${this.salary}`;
     }
 };
@@ -24,8 +24,19 @@ addEmployee(employee){
 }
 getDepartmentSalary(){
     return this.employees.reduce((total, employee)=> {return total + employee.salary}, 0)
-}            
-}; // calculates the salary of the department
+}    
+
+// Task 4: Handle Bonuses for Managers
+
+calculateTotalSalaryWithBonus() 
+{
+    return this.employees.reduce((total, emp) => {
+        if (emp instanceof Manager) {
+            return total + emp.salary + emp.bonus;
+        }
+        return total + emp.salary;}, 0);
+}        
+}; // calculates the salary of the department and adds bonuses for Managers
 
  // Task 3: Create a Manager Class that Inherits from Employee
 
